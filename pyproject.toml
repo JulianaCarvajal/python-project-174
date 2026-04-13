@@ -22,3 +22,8 @@ packages = [
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.gendiff:main"
+
+[dependency-groups]
+dev = [
+    "ruff (>=0.15.10,<0.16.0)"
+]

@@ -3,7 +3,7 @@
 __pycache__
 *.pyc
 
-# --- uv / build / distribution ---
+# --- build / distribution ---
 dist/
 
 
