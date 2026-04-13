@@ -1,0 +1,16 @@
+# --- Python ---
+*.egg-info
+__pycache__
+*.pyc
+
+# --- uv / build / distribution ---
+dist/
+
+
+# --- Virtual environments ---
+.venv
+
+# --- Coverage and QA ---
+.coverage
+coverage.xml
+*_cache/
