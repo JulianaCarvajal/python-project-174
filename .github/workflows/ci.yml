@@ -65,7 +65,7 @@ jobs:
         run: poetry install
 
       - name: Ejecutar Pytest con Cobertura via Poetry
-        run: poetry run pytest --cov=gendiff --cov-report=xml
+        run: poetry run pytest --cov=. --cov-report=xml
 
       - name: Enviar Reporte a Qlty Cloud
         uses: qltysh/qlty-action/coverage@fd52dc852530a708d68c3b7342f8d33d1df4cd55     # v2.2.1
