@@ -63,9 +63,9 @@ Pending
 
 ---
 
-## Demos
+## Demo
 
-Pending (asciinema)
+[![asciicast](https://asciinema.org/a/94MzvnaChMotgFw6.svg)](https://asciinema.org/a/94MzvnaChMotgFw6)
 
 ---
 
