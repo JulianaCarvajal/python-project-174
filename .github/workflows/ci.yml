@@ -39,7 +39,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -71,5 +70,5 @@ jobs:
       - name: Enviar Reporte a Qlty Cloud
         uses: qltysh/qlty-action/coverage@fd52dc852530a708d68c3b7342f8d33d1df4cd55     # v2.2.1
         with:
-          oidc: true
+          token: ${{ secrets.QLTY_COVERAGE_TOKEN }}
           files: coverage.xml
