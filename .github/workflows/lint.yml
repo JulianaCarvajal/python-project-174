@@ -1,0 +1,48 @@
+name: Lint Code Base
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  run-makefile-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Linter via Makefile
+        run: make lint
+
+#   quality-and-coverage:
+#     runs-on: ubuntu-latest
+#     steps:
+#       # 1. Clonar el repositorio
+#       - name: Checkout del código
+#         uses: actions/checkout@v4
+
+#       # 2. Instalar el CLI de Qlty en el runner
+#       - name: Instalar Qlty CLI
+#         uses: qltysh/qlty-action/install@v2
+
+#       # 3. Formatear y analizar la salud del código
+#       - name: Validar formato y calidad
+#         run: |
+#           qlty fmt --check
+#           qlty check
+
+#       # 4. Configurar tu entorno de pruebas y ejecutarlas (Ejemplo genérico con Node.js)
+#       - name: Instalar Dependencias
+#         run: npm ci
+
+#       - name: Ejecutar Pruebas y Generar Cobertura
+#         run: npm test -- --coverage # Asegúrate de que tus pruebas generen reportes (lcov, xml, etc.)
+
+#       # 5. Subir el reporte de cobertura a Qlty Cloud usando OIDC (Sin tokens/contraseñas)
+#       - name: Subir Cobertura a Qlty Cloud
+#         uses: qltysh/qlty-action/coverage@v2
+#         with:
+#           oidc: true
+#           files: coverage/lcov.info # Ruta hacia el reporte generado por tu suite de pruebas
