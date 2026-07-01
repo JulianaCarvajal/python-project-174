@@ -1,48 +1,59 @@
-name: Lint Code Base
+name: Quality and tests
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [main, master]
   pull_request:
-    branches: [ main, master ]
+    branches: [main, master]
 
 jobs:
   run-makefile-lint:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Install Poetry
+        run: pipx install poetry
+
+      - name: Install dependencies
+        run: poetry install --no-interaction --no-root
+
       - name: Run Linter via Makefile
         run: make lint
-
-#   quality-and-coverage:
+        
+#   test-and-quality:
 #     runs-on: ubuntu-latest
 #     steps:
-#       # 1. Clonar el repositorio
-#       - name: Checkout del código
+#       - name: Checkout Repository
 #         uses: actions/checkout@v4
 
+#       - name: Set up Python
+#         uses: actions/setup-python@v5
+#         with:
+#           python-version: "3.13"
+
 #       # 2. Instalar el CLI de Qlty en el runner
-#       - name: Instalar Qlty CLI
+#       - name: Install Qlty CLI
 #         uses: qltysh/qlty-action/install@v2
 
 #       # 3. Formatear y analizar la salud del código
-#       - name: Validar formato y calidad
+#       - name: Check format and quality
 #         run: |
 #           qlty fmt --check
 #           qlty check
 
-#       # 4. Configurar tu entorno de pruebas y ejecutarlas (Ejemplo genérico con Node.js)
-#       - name: Instalar Dependencias
-#         run: npm ci
+#       - name: Install Poetry
+#         run: pipx install poetry
 
-#       - name: Ejecutar Pruebas y Generar Cobertura
-#         run: npm test -- --coverage # Asegúrate de que tus pruebas generen reportes (lcov, xml, etc.)
+#       - name: Install dependencies
+#         run: poetry install
 
-#       # 5. Subir el reporte de cobertura a Qlty Cloud usando OIDC (Sin tokens/contraseñas)
-#       - name: Subir Cobertura a Qlty Cloud
-#         uses: qltysh/qlty-action/coverage@v2
-#         with:
-#           oidc: true
-#           files: coverage/lcov.info # Ruta hacia el reporte generado por tu suite de pruebas
+#       - name: Ejecutar Pruebas
+#         run: poetry run pytest
