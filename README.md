@@ -59,13 +59,52 @@ gendiff file1 file2
 
 ## Examples
 
-Pending
+Given two JSON files:
+
+**file1.json**
+```json
+{
+  "host": "hexlet.io",
+  "timeout": 50,
+  "proxy": "123.234.53.22",
+  "follow": false
+}
+```
+
+**file2.json**
+```json
+{
+  "timeout": 20,
+  "verbose": true,
+  "host": "hexlet.io",
+  "proxy": "123.234.53.22"
+}
+```
+
+Running:
+```sh
+gendiff file1.json file2.json
+```
+
+Output:
+```
+{
+  - follow: False
+    host: hexlet.io
+    proxy: 123.234.53.22
+  - timeout: 50
+  + timeout: 20
+  + verbose: True
+}
+```
+
+Keys marked with `-` were removed, `+` were added, and unmarked keys are unchanged.
 
 ---
 
 ## Demo
 
-[![asciicast](https://asciinema.org/a/94MzvnaChMotgFw6.svg)](https://asciinema.org/a/94MzvnaChMotgFw6)
+[![Demo](https://asciinema.org/a/94MzvnaChMotgFw6.svg)](https://asciinema.org/a/94MzvnaChMotgFw6)
 
 ---
 
@@ -73,11 +112,21 @@ Pending
 
 ```
 python-project-174/
-├── gendiff/                
-│   ├── scripts/                  
-│   │   ├── gendiff.py
-├── pyproject.toml            
-├── poetry.lock           
+├── .github/
+│   └── workflows/
+│       ├── ci.yml
+│       └── hexlet-check.yml
+├── gendiff/
+│   ├── scripts/
+│   │   ├── __init__.py
+│   │   └── gendiff.py
+│   └── __init__.py
+├── tests/
+│   └── test_gendiff.py
+├── .gitattributes
 ├── .gitignore
+├── Makefile
+├── poetry.lock
+├── pyproject.toml
 └── README.md
 ```
