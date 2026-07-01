@@ -10,6 +10,10 @@ dist/
 # --- Virtual environments ---
 .venv
 
+# --- Test files ---
+file1.json
+file2.json
+
 # --- Coverage and QA ---
 .coverage
 coverage.xml
