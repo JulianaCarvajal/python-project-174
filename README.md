@@ -2,6 +2,7 @@
 
 [![Actions Status](https://github.com/JulianaCarvajal/python-project-174/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/JulianaCarvajal/python-project-174/actions)
 [![Actions Status](https://github.com/JulianaCarvajal/python-project-174/actions/workflows/lint.yml/badge.svg)](https://github.com/JulianaCarvajal/python-project-174/actions)
+[![Maintainability](https://qlty.sh/gh/JulianaCarvajal/projects/python-project-174/maintainability.svg)](https://qlty.sh/gh/JulianaCarvajal/projects/python-project-174)
 
 CLI Difference Calculator. Compares two configuration files and shows a difference.
 
