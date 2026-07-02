@@ -13,6 +13,8 @@ dist/
 # --- Test files ---
 file1.json
 file2.json
+file1.yaml
+file2.yaml
 
 # --- Asciinema recordings ---
 *.cast
@@ -21,3 +23,6 @@ file2.json
 .coverage
 coverage.xml
 *_cache/
+
+
+poetry.toml
